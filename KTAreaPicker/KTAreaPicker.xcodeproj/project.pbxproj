@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		689D0A271C053CEE002D61EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A261C053CEE002D61EA /* main.m */; };
+		689D0A2A1C053CEE002D61EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A291C053CEE002D61EA /* AppDelegate.m */; };
+		689D0A2D1C053CEE002D61EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A2C1C053CEE002D61EA /* ViewController.m */; };
+		689D0A301C053CEE002D61EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689D0A2E1C053CEE002D61EA /* Main.storyboard */; };
+		689D0A321C053CEE002D61EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 689D0A311C053CEE002D61EA /* Assets.xcassets */; };
+		689D0A351C053CEE002D61EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689D0A331C053CEE002D61EA /* LaunchScreen.storyboard */; };
+		689D0A411C053D66002D61EA /* KTAreaPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689D0A3F1C053D66002D61EA /* KTAreaPicker.xib */; };
+		689D0A4D1C05464D002D61EA /* KTAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A4C1C05464D002D61EA /* KTAreaPickerView.m */; };
+		689D0A551C0546C2002D61EA /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = 689D0A541C0546C2002D61EA /* area.json */; };
+		689D0A591C054839002D61EA /* KTProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A581C054839002D61EA /* KTProvinceModel.m */; };
+		689D0A5C1C054849002D61EA /* KTCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A5B1C054849002D61EA /* KTCityModel.m */; };
+		689D0A5F1C054855002D61EA /* KTDistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A5E1C054855002D61EA /* KTDistrictModel.m */; };
+		689D0A621C054E6E002D61EA /* KTAreaPickerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A611C054E6E002D61EA /* KTAreaPickerModel.m */; };
+		689D0A681C058A7E002D61EA /* KTAreaSelecedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A671C058A7E002D61EA /* KTAreaSelecedModel.m */; };
+		689D0A6B1C058EB9002D61EA /* KTAreaMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 689D0A6A1C058EB9002D61EA /* KTAreaMaskView.m */; };
+		D94C8D50DDB5D9DD13D1BC8F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C65DABB60B193D4D29FAB7C8 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		26C504D398C24C75F1BEE781 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		689D0A221C053CEE002D61EA /* KTAreaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTAreaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		689D0A261C053CEE002D61EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		689D0A281C053CEE002D61EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		689D0A291C053CEE002D61EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		689D0A2B1C053CEE002D61EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		689D0A2C1C053CEE002D61EA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		689D0A2F1C053CEE002D61EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		689D0A311C053CEE002D61EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		689D0A341C053CEE002D61EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		689D0A361C053CEE002D61EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		689D0A3F1C053D66002D61EA /* KTAreaPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KTAreaPicker.xib; sourceTree = "<group>"; };
+		689D0A4B1C05464D002D61EA /* KTAreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAreaPickerView.h; sourceTree = "<group>"; };
+		689D0A4C1C05464D002D61EA /* KTAreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAreaPickerView.m; sourceTree = "<group>"; };
+		689D0A541C0546C2002D61EA /* area.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = area.json; sourceTree = "<group>"; };
+		689D0A571C054839002D61EA /* KTProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTProvinceModel.h; sourceTree = "<group>"; };
+		689D0A581C054839002D61EA /* KTProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTProvinceModel.m; sourceTree = "<group>"; };
+		689D0A5A1C054849002D61EA /* KTCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTCityModel.h; sourceTree = "<group>"; };
+		689D0A5B1C054849002D61EA /* KTCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTCityModel.m; sourceTree = "<group>"; };
+		689D0A5D1C054855002D61EA /* KTDistrictModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTDistrictModel.h; sourceTree = "<group>"; };
+		689D0A5E1C054855002D61EA /* KTDistrictModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTDistrictModel.m; sourceTree = "<group>"; };
+		689D0A601C054E6E002D61EA /* KTAreaPickerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAreaPickerModel.h; sourceTree = "<group>"; };
+		689D0A611C054E6E002D61EA /* KTAreaPickerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAreaPickerModel.m; sourceTree = "<group>"; };
+		689D0A661C058A7E002D61EA /* KTAreaSelecedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAreaSelecedModel.h; sourceTree = "<group>"; };
+		689D0A671C058A7E002D61EA /* KTAreaSelecedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAreaSelecedModel.m; sourceTree = "<group>"; };
+		689D0A691C058EB9002D61EA /* KTAreaMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAreaMaskView.h; sourceTree = "<group>"; };
+		689D0A6A1C058EB9002D61EA /* KTAreaMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAreaMaskView.m; sourceTree = "<group>"; };
+		689D0A6E1C05AA1F002D61EA /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		A2488DAE74E2105098570533 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C65DABB60B193D4D29FAB7C8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		689D0A1F1C053CEE002D61EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D94C8D50DDB5D9DD13D1BC8F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58F6C2BDD84DD193BE6ACB5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C65DABB60B193D4D29FAB7C8 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		689D0A191C053CEE002D61EA = {
+			isa = PBXGroup;
+			children = (
+				58F6C2BDD84DD193BE6ACB5D /* Frameworks */,
+				689D0A241C053CEE002D61EA /* KTAreaPicker */,
+				793C5B4728955D08BD35F253 /* Pods */,
+				689D0A231C053CEE002D61EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		689D0A231C053CEE002D61EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				689D0A221C053CEE002D61EA /* KTAreaPicker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		689D0A241C053CEE002D61EA /* KTAreaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				689D0A3C1C053D4A002D61EA /* KTAreaPicker */,
+				689D0A2C1C053CEE002D61EA /* ViewController.m */,
+				689D0A2B1C053CEE002D61EA /* ViewController.h */,
+				689D0A251C053CEE002D61EA /* Supporting Files */,
+			);
+			path = KTAreaPicker;
+			sourceTree = "<group>";
+		};
+		689D0A251C053CEE002D61EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				689D0A281C053CEE002D61EA /* AppDelegate.h */,
+				689D0A291C053CEE002D61EA /* AppDelegate.m */,
+				689D0A311C053CEE002D61EA /* Assets.xcassets */,
+				689D0A361C053CEE002D61EA /* Info.plist */,
+				689D0A331C053CEE002D61EA /* LaunchScreen.storyboard */,
+				689D0A2E1C053CEE002D61EA /* Main.storyboard */,
+				689D0A261C053CEE002D61EA /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		689D0A3C1C053D4A002D61EA /* KTAreaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				689D0A561C054803002D61EA /* KTAreaPickerModel */,
+				689D0A6C1C058EEB002D61EA /* KTAreaPickerView */,
+				689D0A6D1C059051002D61EA /* Sources */,
+			);
+			path = KTAreaPicker;
+			sourceTree = "<group>";
+		};
+		689D0A561C054803002D61EA /* KTAreaPickerModel */ = {
+			isa = PBXGroup;
+			children = (
+				689D0A601C054E6E002D61EA /* KTAreaPickerModel.h */,
+				689D0A611C054E6E002D61EA /* KTAreaPickerModel.m */,
+				689D0A661C058A7E002D61EA /* KTAreaSelecedModel.h */,
+				689D0A671C058A7E002D61EA /* KTAreaSelecedModel.m */,
+				689D0A5A1C054849002D61EA /* KTCityModel.h */,
+				689D0A5B1C054849002D61EA /* KTCityModel.m */,
+				689D0A5D1C054855002D61EA /* KTDistrictModel.h */,
+				689D0A5E1C054855002D61EA /* KTDistrictModel.m */,
+				689D0A571C054839002D61EA /* KTProvinceModel.h */,
+				689D0A581C054839002D61EA /* KTProvinceModel.m */,
+			);
+			path = KTAreaPickerModel;
+			sourceTree = "<group>";
+		};
+		689D0A6C1C058EEB002D61EA /* KTAreaPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				689D0A691C058EB9002D61EA /* KTAreaMaskView.h */,
+				689D0A6A1C058EB9002D61EA /* KTAreaMaskView.m */,
+				689D0A3F1C053D66002D61EA /* KTAreaPicker.xib */,
+				689D0A4B1C05464D002D61EA /* KTAreaPickerView.h */,
+				689D0A4C1C05464D002D61EA /* KTAreaPickerView.m */,
+				689D0A6E1C05AA1F002D61EA /* Macro.h */,
+			);
+			path = KTAreaPickerView;
+			sourceTree = "<group>";
+		};
+		689D0A6D1C059051002D61EA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				689D0A541C0546C2002D61EA /* area.json */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		793C5B4728955D08BD35F253 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2488DAE74E2105098570533 /* Pods.debug.xcconfig */,
+				26C504D398C24C75F1BEE781 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		689D0A211C053CEE002D61EA /* KTAreaPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 689D0A391C053CEE002D61EA /* Build configuration list for PBXNativeTarget "KTAreaPicker" */;
+			buildPhases = (
+				79F0431916965F43EB26CF95 /* Check Pods Manifest.lock */,
+				689D0A1E1C053CEE002D61EA /* Sources */,
+				689D0A1F1C053CEE002D61EA /* Frameworks */,
+				689D0A201C053CEE002D61EA /* Resources */,
+				91A94F68E4305C47D7BF7416 /* Embed Pods Frameworks */,
+				452E7173F9BCE66A997817B7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KTAreaPicker;
+			productName = KTAreaPicker;
+			productReference = 689D0A221C053CEE002D61EA /* KTAreaPicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		689D0A1A1C053CEE002D61EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = KT;
+				TargetAttributes = {
+					689D0A211C053CEE002D61EA = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "KTAreaPicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 689D0A191C053CEE002D61EA;
+			productRefGroup = 689D0A231C053CEE002D61EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				689D0A211C053CEE002D61EA /* KTAreaPicker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		689D0A201C053CEE002D61EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689D0A351C053CEE002D61EA /* LaunchScreen.storyboard in Resources */,
+				689D0A321C053CEE002D61EA /* Assets.xcassets in Resources */,
+				689D0A551C0546C2002D61EA /* area.json in Resources */,
+				689D0A411C053D66002D61EA /* KTAreaPicker.xib in Resources */,
+				689D0A301C053CEE002D61EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		452E7173F9BCE66A997817B7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79F0431916965F43EB26CF95 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91A94F68E4305C47D7BF7416 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		689D0A1E1C053CEE002D61EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689D0A2D1C053CEE002D61EA /* ViewController.m in Sources */,
+				689D0A681C058A7E002D61EA /* KTAreaSelecedModel.m in Sources */,
+				689D0A6B1C058EB9002D61EA /* KTAreaMaskView.m in Sources */,
+				689D0A2A1C053CEE002D61EA /* AppDelegate.m in Sources */,
+				689D0A5F1C054855002D61EA /* KTDistrictModel.m in Sources */,
+				689D0A5C1C054849002D61EA /* KTCityModel.m in Sources */,
+				689D0A591C054839002D61EA /* KTProvinceModel.m in Sources */,
+				689D0A621C054E6E002D61EA /* KTAreaPickerModel.m in Sources */,
+				689D0A4D1C05464D002D61EA /* KTAreaPickerView.m in Sources */,
+				689D0A271C053CEE002D61EA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		689D0A2E1C053CEE002D61EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				689D0A2F1C053CEE002D61EA /* Base */,
+			);
+			name = Main.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+		689D0A331C053CEE002D61EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				689D0A341C053CEE002D61EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		689D0A371C053CEE002D61EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		689D0A381C053CEE002D61EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		689D0A3A1C053CEE002D61EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2488DAE74E2105098570533 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "KTAreaPicker/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KT.WuHou.KTAreaPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		689D0A3B1C053CEE002D61EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26C504D398C24C75F1BEE781 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "KTAreaPicker/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KT.WuHou.KTAreaPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "KTAreaPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				689D0A371C053CEE002D61EA /* Debug */,
+				689D0A381C053CEE002D61EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		689D0A391C053CEE002D61EA /* Build configuration list for PBXNativeTarget "KTAreaPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				689D0A3A1C053CEE002D61EA /* Debug */,
+				689D0A3B1C053CEE002D61EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 689D0A1A1C053CEE002D61EA /* Project object */;
+}
