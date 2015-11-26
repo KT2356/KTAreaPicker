@@ -17,13 +17,13 @@
     KTAreaSelecedModel *selectModel = [[KTAreaSelecedModel alloc] init];
     
     NSString *cityPisplayName;
-    if ([province.shortName isEqualToString:city.shortName]) {
+    if ([province.name isEqualToString:city.name]) {
         cityPisplayName = @"";
     } else {
-        cityPisplayName = [city.shortName stringByAppendingString:@"-"];
+        cityPisplayName = [city.name stringByAppendingString:@"-"];
     }
     
-    NSString *outSting = [NSString stringWithFormat:@"%@-%@%@  >",province.shortName,cityPisplayName,district.name];
+    NSString *outSting = [NSString stringWithFormat:@"%@-%@%@  >",province.name,cityPisplayName,district.name];
     
     selectModel.provinceModel = province;
     selectModel.cityModel     = city;

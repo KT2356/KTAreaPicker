@@ -44,14 +44,16 @@
     self = [super init];
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:@"KTAreaPicker" owner:self options:nil] firstObject];
-        [self analysisJSON:@"area.json" finishBlock:^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [_activitySpinner stopAnimating];
-                [_pickerView reloadAllComponents];
-                [self initPickerPosition:self.tempProvince City:self.tempCity district:self.tempDistrict];
-                _pickerView.userInteractionEnabled = YES;
-            });
-        }];
+        if (![KTAreaPickerModel sharedModel].provinceList) {
+            [self analysisJSON:@"area.json" finishBlock:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_activitySpinner stopAnimating];
+                    [_pickerView reloadAllComponents];
+                    [self initPickerPosition:self.tempProvince City:self.tempCity district:self.tempDistrict];
+                    _pickerView.userInteractionEnabled = YES;
+                });
+            }];
+        }
         [superView addSubview:self.maskView];
         [self.maskView addSubview:self];
         [self setupViews];
@@ -288,7 +290,7 @@
 #pragma mark -setter / getter
 - (KTAreaMaskView *)maskView {
     if (!_maskView) {
-        _maskView = [[KTAreaMaskView alloc] initWithFrame:CGRectMake(0, 64, KT_UISCREEN_Width, KT_UISCREEN_HEIGHT-64)];
+        _maskView = [[KTAreaMaskView alloc] initWithFrame:CGRectMake(0, 0, KT_UISCREEN_Width, KT_UISCREEN_HEIGHT)];
         _maskView.delegate = self;
     }
     return _maskView;
