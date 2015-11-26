@@ -14,22 +14,27 @@
 #import "KTAreaMaskView.h"
 #import "Macro.h"
 
-#import "MJExtension.h"
-
-
-static const NSInteger PROVINCE_COMPONENT = 0;
-static const NSInteger CITY_COMPONENT     = 1;
-static const NSInteger DISTRICT_COMPONENT = 2;
+#import <MJExtension.h>
 
 @interface KTAreaPickerView()<UIPickerViewDelegate,UIPickerViewDataSource,KTAreaMaskViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 - (IBAction)cancelBtnAction:(UIButton *)sender;
 - (IBAction)finishBtnAction:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinner;
 
 @property (nonatomic, strong) KTProvinceModel *provinceModel;
 @property (nonatomic, strong) KTCityModel     *cityModel;
 @property (nonatomic, strong) KTDistrictModel *disctrictModel;
 @property (nonatomic, strong) KTAreaMaskView  *maskView;
+@property (nonatomic, assign) float           compontentWidth;
+
+@property (nonatomic) BOOL isShown;
+
+@property (nonatomic, strong) NSString *tempProvince;
+@property (nonatomic, strong) NSString *tempCity;
+@property (nonatomic, strong) NSString *tempDistrict;
+
 
 @end
 @implementation KTAreaPickerView
@@ -38,8 +43,15 @@ static const NSInteger DISTRICT_COMPONENT = 2;
 - (instancetype)initInSuperView:(UIView *)superView {
     self = [super init];
     if (self) {
-        [self analysisJSON:@"area.json"];
         self = [[[NSBundle mainBundle] loadNibNamed:@"KTAreaPicker" owner:self options:nil] firstObject];
+        [self analysisJSON:@"area.json" finishBlock:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_activitySpinner stopAnimating];
+                [_pickerView reloadAllComponents];
+                [self initPickerPosition:self.tempProvince City:self.tempCity district:self.tempDistrict];
+                _pickerView.userInteractionEnabled = YES;
+            });
+        }];
         [superView addSubview:self.maskView];
         [self.maskView addSubview:self];
         [self setupViews];
@@ -47,37 +59,51 @@ static const NSInteger DISTRICT_COMPONENT = 2;
     return self;
 }
 
+
 - (void)initPickerPosition:(NSString *)province
                       City:(NSString *)city
                   district:(NSString *)district {
-    [_pickerView selectRow: [self locatePickerWith:province inComponent:PROVINCE_COMPONENT]
-               inComponent: PROVINCE_COMPONENT animated: NO];
-    [_pickerView selectRow: [self locatePickerWith:city inComponent:CITY_COMPONENT]
-               inComponent: CITY_COMPONENT animated: NO];
-    [_pickerView selectRow: [self locatePickerWith:district inComponent:DISTRICT_COMPONENT]
-               inComponent: DISTRICT_COMPONENT animated: NO];
+    [self showPicker:YES];
+    if ([KTAreaPickerModel sharedModel].provinceList) {
+        [_pickerView selectRow: [self locatePickerWith:province inComponent:PROVINCE_COMPONENT]
+                   inComponent: PROVINCE_COMPONENT animated: NO];
+        [_pickerView selectRow: [self locatePickerWith:city inComponent:CITY_COMPONENT]
+                   inComponent: CITY_COMPONENT animated: NO];
+        [_pickerView selectRow: [self locatePickerWith:district inComponent:DISTRICT_COMPONENT]
+                   inComponent: DISTRICT_COMPONENT animated: NO];
+    } else {
+        self.tempProvince = province;
+        self.tempCity     = city;
+        self.tempDistrict = district;
+    }
+    
 }
 
 - (void)showPicker:(BOOL)show {
-    [UIView animateWithDuration:0.3 animations:^{
-        if (show) {
+    //appear
+    if (!self.isShown && show) {
+        [UIView animateWithDuration:0.3 animations:^{
             _maskView.hidden = NO;
             _maskView.maskView.alpha = 0.2;
             CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -252.0f);
             self.transform = transform;
-        } else {
+        } completion:^(BOOL finished) {
+            self.isShown = YES;
+        }];
+    }
+    //disappear
+    if (self.isShown && !show) {
+        [UIView animateWithDuration:0.3 animations:^{
             _maskView.maskView.alpha = 0;
             CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 252.0f);
             self.transform = transform;
-        }
-    } completion:^(BOOL finished) {
-        if (!show) {
+        } completion:^(BOOL finished) {
             _maskView.hidden = YES;
-        }
-    }];
+            self.isShown = NO;
+        }];
+    }
+    
 }
-
-
 
 #pragma mark - private methods
 - (void)setupViews {
@@ -85,38 +111,26 @@ static const NSInteger DISTRICT_COMPONENT = 2;
     self.pickerView.delegate = self;
 }
 
-/**
- *  @author KT, 2015-11-25 17:54:08
- *
- *  解析JSON较慢，采用多线程
- *
- *  @param jsonName
- */
-- (void)analysisJSON:(NSString *)jsonName {
+
+- (void)analysisJSON:(NSString *)jsonName finishBlock:(void(^)(void))finishBolck {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_async(group, queue, ^{
+        [_activitySpinner startAnimating];
+        _pickerView.userInteractionEnabled = NO;
         NSString *path = [[NSBundle mainBundle] pathForResource:jsonName ofType:nil];
         NSData *data   = [NSData dataWithContentsOfFile:path];
         NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
                                                                  options:NSJSONReadingMutableContainers
                                                                    error:nil];
         [KTAreaPickerModel sharedModel].provinceList = [KTProvinceModel objectArrayWithKeyValuesArray:jsonDict[@"citylist"]];
+        if ([KTAreaPickerModel sharedModel].provinceList) {
+            finishBolck();
+        }
     });
-    
 }
 
 
-/**
- *  @author KT, 2015-11-25 16:21:32
- *
- *  定位各Compontent的初始位置
- *
- *  @param itemName
- *  @param compontent
- *
- *  @return index
- */
 - (NSInteger)locatePickerWith:(NSString *)itemName inComponent:(NSInteger)compontent {
     if (!itemName || itemName.length < 2) {
         return 0;
@@ -159,6 +173,15 @@ static const NSInteger DISTRICT_COMPONENT = 2;
     return 0;
 }
 
+- (UILabel *)setupPickerDisplayLabel {
+    UILabel *displayLabel;
+    displayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, self.compontentWidth, 30)] ;
+    displayLabel.textAlignment = NSTextAlignmentCenter;
+    displayLabel.font = [UIFont systemFontOfSize:15];
+    displayLabel.backgroundColor = [UIColor clearColor];
+    return  displayLabel;
+}
+
 #pragma mark - KTMaskViewDelegate
 - (void)KTmaskViewDidTapped {
     [self showPicker:NO];
@@ -171,19 +194,23 @@ static const NSInteger DISTRICT_COMPONENT = 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    switch (component) {
-        case PROVINCE_COMPONENT:
-            return [KTAreaPickerModel sharedModel].provinceList.count;
-            break;
-        case CITY_COMPONENT:
-            return [self.provinceModel.list count];
-            break;
-        case DISTRICT_COMPONENT:
-            return [self.cityModel.list count];
-            break;
-        default:
-            return 0;
-            break;
+    if ([KTAreaPickerModel sharedModel].provinceList) {
+        switch (component) {
+            case PROVINCE_COMPONENT:
+                return [KTAreaPickerModel sharedModel].provinceList.count;
+                break;
+            case CITY_COMPONENT:
+                return [self.provinceModel.list count];
+                break;
+            case DISTRICT_COMPONENT:
+                return [self.cityModel.list count];
+                break;
+            default:
+                return 0;
+                break;
+        }
+    } else {
+        return 1;
     }
 }
 
@@ -215,18 +242,18 @@ static const NSInteger DISTRICT_COMPONENT = 2;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    return 90;
+    return self.compontentWidth;
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
     UILabel *displayView = nil;
-    displayView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 90, 30)] ;
-    displayView.font = [UIFont systemFontOfSize:15];
-    displayView.backgroundColor = [UIColor clearColor];
+    displayView = [self setupPickerDisplayLabel];
     
     switch (component) {
-        case PROVINCE_COMPONENT:
+        case PROVINCE_COMPONENT: {
             displayView.text = ((KTProvinceModel *)[KTAreaPickerModel sharedModel].provinceList[row]).shortName;
+            displayView.frame = CGRectMake(20, 0, self.compontentWidth, 30);
+        }
             break;
         case CITY_COMPONENT: {
             KTCityModel *tempCity = self.provinceModel.list[row];
@@ -240,6 +267,9 @@ static const NSInteger DISTRICT_COMPONENT = 2;
             break;
         default:
             break;
+    }
+    if (![KTAreaPickerModel sharedModel].provinceList) {
+        displayView.text = @"加载中...";
     }
     return displayView;
 }
@@ -256,10 +286,6 @@ static const NSInteger DISTRICT_COMPONENT = 2;
 
 
 #pragma mark -setter / getter
-- (UIPickerView *)pickerView {
-    return _pickerView;
-}
-
 - (KTAreaMaskView *)maskView {
     if (!_maskView) {
         _maskView = [[KTAreaMaskView alloc] initWithFrame:CGRectMake(0, 64, KT_UISCREEN_Width, KT_UISCREEN_HEIGHT-64)];
@@ -289,4 +315,29 @@ static const NSInteger DISTRICT_COMPONENT = 2;
     }
     return  _disctrictModel;
 }
+
+- (float)compontentWidth {
+    return (_pickerView.bounds.size.width - 20)/3;
+}
+
+- (NSString *)tempProvince {
+    if (!_tempProvince) {
+        _tempProvince = [[NSString alloc] init];
+    }
+    return _tempProvince;
+}
+- (NSString *)tempCity {
+    if (!_tempCity) {
+        _tempCity = [[NSString alloc] init];
+    }
+    return _tempCity;
+}
+- (NSString *)tempDistrict {
+    if (!_tempDistrict) {
+        _tempDistrict = [[NSString alloc] init];
+    }
+    return _tempDistrict;
+}
+
 @end
+

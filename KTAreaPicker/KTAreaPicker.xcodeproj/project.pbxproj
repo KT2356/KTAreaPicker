@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				689D0A3C1C053D4A002D61EA /* KTAreaPicker */,
-				689D0A2C1C053CEE002D61EA /* ViewController.m */,
 				689D0A2B1C053CEE002D61EA /* ViewController.h */,
+				689D0A2C1C053CEE002D61EA /* ViewController.m */,
 				689D0A251C053CEE002D61EA /* Supporting Files */,
 			);
 			path = KTAreaPicker;

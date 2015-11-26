@@ -10,7 +10,7 @@
 #import "KTAreaPickerView.h"
 #import "KTAreaSelecedModel.h"
 
-@interface ViewController ()<KTAreaPickerDelegate>
+@interface ViewController ()<KTAreaPickerDelegate>//step 1
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (nonatomic, strong) KTAreaPickerView *ktPickerView;
 - (IBAction)buttonAction:(UIButton *)sender;
@@ -21,19 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.ktPickerView showPicker:NO];
 }
 
-
+// delegate step 3
 - (void)KTAreaPickerDidFinished:(KTAreaSelecedModel *)selectModel {
     self.label.text = selectModel.displayString;
+}
+- (IBAction)initAction:(UIButton *)sender {
+    [self.ktPickerView showPicker:YES];
 }
 
 - (IBAction)buttonAction:(UIButton *)sender {
     [self.ktPickerView initPickerPosition:@"山西" City:@"太原" district:@"古交市"];
-    [self.ktPickerView showPicker:YES];
 }
 
+//init step 2
 - (KTAreaPickerView *)ktPickerView {
     if (!_ktPickerView) {
         _ktPickerView = [[KTAreaPickerView alloc] initInSuperView:self.view];

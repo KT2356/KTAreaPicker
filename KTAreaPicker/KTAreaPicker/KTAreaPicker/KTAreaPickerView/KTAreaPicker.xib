@@ -29,7 +29,7 @@
                                 <constraint firstAttribute="height" constant="30" id="y29-bK-eDa"/>
                             </constraints>
                             <state key="normal" title="完成">
-                                <color key="titleColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="finishBtnAction:" destination="iG8-ag-77D" eventType="touchUpInside" id="dYP-u6-c01"/>
@@ -43,12 +43,20 @@
                                 <constraint firstAttribute="width" constant="46" id="MCf-JS-BSH"/>
                             </constraints>
                             <state key="normal" title="取消">
-                                <color key="titleColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="cancelBtnAction:" destination="iG8-ag-77D" eventType="touchUpInside" id="h6R-9U-upk"/>
                             </connections>
                         </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9es-i7-q0Z">
+                            <rect key="frame" x="150" y="8" width="20" height="20"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="00h-Ip-xb6"/>
+                                <constraint firstAttribute="height" constant="20" id="eB9-dL-tFU"/>
+                            </constraints>
+                        </activityIndicatorView>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,7 +65,9 @@
                         <constraint firstAttribute="trailing" secondItem="mRM-d3-GZ3" secondAttribute="trailing" constant="8" id="RQj-Hr-K9V"/>
                         <constraint firstAttribute="height" constant="36" id="YOU-Mp-PMf"/>
                         <constraint firstItem="6WD-g0-hQn" firstAttribute="centerY" secondItem="Yly-rX-aq2" secondAttribute="centerY" id="fD2-Y1-qcB"/>
+                        <constraint firstItem="9es-i7-q0Z" firstAttribute="centerY" secondItem="Yly-rX-aq2" secondAttribute="centerY" id="hDQ-a8-qel"/>
                         <constraint firstItem="6WD-g0-hQn" firstAttribute="leading" secondItem="Yly-rX-aq2" secondAttribute="leading" constant="8" id="pod-AC-dyP"/>
+                        <constraint firstItem="9es-i7-q0Z" firstAttribute="centerX" secondItem="Yly-rX-aq2" secondAttribute="centerX" id="scS-09-7fR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -77,6 +87,7 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="activitySpinner" destination="9es-i7-q0Z" id="Vcz-ny-PKt"/>
                 <outlet property="pickerView" destination="1Dl-Ue-uyF" id="gNa-wz-sl5"/>
             </connections>
             <point key="canvasLocation" x="263" y="100"/>
