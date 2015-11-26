@@ -13,5 +13,5 @@
         }
 ##### Step 3: Usage
          [self.ktPickerView showPicker:YES];
-* or you can locate the picker with:
+###### or you can locate the picker with:
          [self.ktPickerView initPickerPosition:@"山西" City:@"太原" district:@"古交市"];
