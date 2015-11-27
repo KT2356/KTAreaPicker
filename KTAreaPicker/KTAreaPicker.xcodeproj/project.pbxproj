@@ -27,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		26C504D398C24C75F1BEE781 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6897FB981C0826A10003D1FF /* KTAreaPickerMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAreaPickerMacro.h; sourceTree = "<group>"; };
 		689D0A221C053CEE002D61EA /* KTAreaPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTAreaPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689D0A261C053CEE002D61EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		689D0A281C053CEE002D61EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		689D0A671C058A7E002D61EA /* KTAreaSelecedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAreaSelecedModel.m; sourceTree = "<group>"; };
 		689D0A691C058EB9002D61EA /* KTAreaMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAreaMaskView.h; sourceTree = "<group>"; };
 		689D0A6A1C058EB9002D61EA /* KTAreaMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAreaMaskView.m; sourceTree = "<group>"; };
-		689D0A6E1C05AA1F002D61EA /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		A2488DAE74E2105098570533 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C65DABB60B193D4D29FAB7C8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -156,7 +156,7 @@
 				689D0A3F1C053D66002D61EA /* KTAreaPicker.xib */,
 				689D0A4B1C05464D002D61EA /* KTAreaPickerView.h */,
 				689D0A4C1C05464D002D61EA /* KTAreaPickerView.m */,
-				689D0A6E1C05AA1F002D61EA /* Macro.h */,
+				6897FB981C0826A10003D1FF /* KTAreaPickerMacro.h */,
 			);
 			path = KTAreaPickerView;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "ktareapicker" */;
+			buildConfigurationList = 689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "KTAreaPicker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -445,7 +445,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "ktareapicker" */ = {
+		689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "KTAreaPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				689D0A371C053CEE002D61EA /* Debug */,

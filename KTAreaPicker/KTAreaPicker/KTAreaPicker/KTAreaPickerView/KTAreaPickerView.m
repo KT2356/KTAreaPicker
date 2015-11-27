@@ -12,7 +12,6 @@
 #import "KTCityModel.h"
 #import "KTDistrictModel.h"
 #import "KTAreaMaskView.h"
-#import "Macro.h"
 
 #import <MJExtension.h>
 
@@ -40,7 +39,7 @@
 @implementation KTAreaPickerView
 
 #pragma mark - public methods
-- (instancetype)initInSuperView:(UIView *)superView {
+- (instancetype)initInSuperView:(UIView *)superView WithPickerType:(KTPickerViewType)pickerType {
     self = [super init];
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:@"KTAreaPicker" owner:self options:nil] firstObject];
@@ -56,7 +55,7 @@
         }
         [superView addSubview:self.maskView];
         [self.maskView addSubview:self];
-        [self setupViews];
+        [self setupViews:pickerType];
     }
     return self;
 }
@@ -102,16 +101,32 @@
         } completion:^(BOOL finished) {
             _maskView.hidden = YES;
             self.isShown = NO;
-            [self.delegate KTAreaPickerDidDisappear];
+            if ([self.delegate respondsToSelector:@selector(KTAreaPickerDidDisappear)]) {
+                [self.delegate KTAreaPickerDidDisappear];
+            }
         }];
     }
     
 }
 
 #pragma mark - private methods
-- (void)setupViews {
-    self.frame = CGRectMake(0, _maskView.bounds.size.height-64, KT_UISCREEN_Width, 252);
+- (void)setupViews:(KTPickerViewType)pickerType {
     self.pickerView.delegate = self;
+    switch (pickerType) {
+        case PickerTypeNormal:
+            self.frame = CGRectMake(0, _maskView.bounds.size.height, KT_UISCREEN_Width, 252);
+            break;
+        case PickerTypeNavigationBar:
+            _maskView.frame = CGRectMake(0, 64, KT_UISCREEN_Width, KT_UISCREEN_HEIGHT-64);
+            self.frame = CGRectMake(0, _maskView.bounds.size.height, KT_UISCREEN_Width, 252);
+            break;
+        case PickerTypeNavigationAndAutoAdjusts:
+            self.frame = CGRectMake(0, _maskView.bounds.size.height-64, KT_UISCREEN_Width, 252);
+            break;
+        default:
+            break;
+    }
+    
 }
 
 
@@ -284,7 +299,9 @@
 
 - (IBAction)finishBtnAction:(UIButton *)sender {
     [self showPicker:NO];
-    [self.delegate KTAreaPickerDidFinished:[KTAreaSelecedModel bindDataWithProvince:self.provinceModel City:self.cityModel District:self.disctrictModel]];
+    if ([self.delegate respondsToSelector:@selector(KTAreaPickerDidFinished:)]) {
+        [self.delegate KTAreaPickerDidFinished:[KTAreaSelecedModel bindDataWithProvince:self.provinceModel City:self.cityModel District:self.disctrictModel]];
+    }
 }
 
 

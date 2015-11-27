@@ -7,7 +7,7 @@
 //
 
 #import "KTAreaMaskView.h"
-#import "Macro.h"
+#import "KTAreaPickerMacro.h"
 
 @interface KTAreaMaskView()
 

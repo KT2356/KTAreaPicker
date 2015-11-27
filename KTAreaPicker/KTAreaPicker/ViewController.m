@@ -27,6 +27,7 @@
 - (void)KTAreaPickerDidFinished:(KTAreaSelecedModel *)selectModel {
     self.label.text = selectModel.displayString;
 }
+
 - (IBAction)initAction:(UIButton *)sender {
     [self.ktPickerView showPicker:YES];
 }
@@ -38,7 +39,7 @@
 //init step 2
 - (KTAreaPickerView *)ktPickerView {
     if (!_ktPickerView) {
-        _ktPickerView = [[KTAreaPickerView alloc] initInSuperView:self.view];
+        _ktPickerView = [[KTAreaPickerView alloc] initInSuperView:self.view WithPickerType:PickerTypeNormal];
         _ktPickerView.delegate = self;
     }
     return _ktPickerView;

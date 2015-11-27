@@ -1,13 +1,14 @@
 //
-//  Macro.h
+//  KTAreaPickerMacro.h
 //  KTAreaPicker
 //
-//  Created by KT on 15/11/25.
+//  Created by KT on 15/11/27.
 //  Copyright © 2015年 KT. All rights reserved.
 //
 
-#ifndef Macro_h
-#define Macro_h
+#ifndef KTAreaPickerMacro_h
+#define KTAreaPickerMacro_h
+
 
 #define KT_UISCREEN_Width         [UIScreen mainScreen].bounds.size.width
 #define KT_UISCREEN_HEIGHT        [UIScreen mainScreen].bounds.size.height
@@ -18,4 +19,10 @@ typedef enum : NSUInteger {
     DISTRICT_COMPONENT,
 } PickerCompontent;
 
-#endif
+typedef enum : NSUInteger {
+    PickerTypeNormal,
+    PickerTypeNavigationBar,
+    PickerTypeNavigationAndAutoAdjusts,
+} KTPickerViewType;
+
+#endif /* KTAreaPickerMacro_h */
