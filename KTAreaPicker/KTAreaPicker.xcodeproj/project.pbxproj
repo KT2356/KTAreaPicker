@@ -100,9 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				689D0A3C1C053D4A002D61EA /* KTAreaPicker */,
+				689D0A251C053CEE002D61EA /* Supporting Files */,
 				689D0A2B1C053CEE002D61EA /* ViewController.h */,
 				689D0A2C1C053CEE002D61EA /* ViewController.m */,
-				689D0A251C053CEE002D61EA /* Supporting Files */,
 			);
 			path = KTAreaPicker;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "KTAreaPicker" */;
+			buildConfigurationList = 689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "ktareapicker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -445,7 +445,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "KTAreaPicker" */ = {
+		689D0A1D1C053CEE002D61EA /* Build configuration list for PBXProject "ktareapicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				689D0A371C053CEE002D61EA /* Debug */,

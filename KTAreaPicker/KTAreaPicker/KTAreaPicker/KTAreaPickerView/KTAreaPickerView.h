@@ -11,6 +11,7 @@
 @protocol KTAreaPickerDelegate<NSObject>
 @required
 - (void)KTAreaPickerDidFinished:(KTAreaSelecedModel *)selectModel;
+- (void)KTAreaPickerDidDisappear;
 @end;
 
 @interface KTAreaPickerView : UIView

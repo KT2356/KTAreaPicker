@@ -102,6 +102,7 @@
         } completion:^(BOOL finished) {
             _maskView.hidden = YES;
             self.isShown = NO;
+            [self.delegate KTAreaPickerDidDisappear];
         }];
     }
     
@@ -109,7 +110,7 @@
 
 #pragma mark - private methods
 - (void)setupViews {
-    self.frame = CGRectMake(0, _maskView.bounds.size.height, KT_UISCREEN_Width, 252);
+    self.frame = CGRectMake(0, _maskView.bounds.size.height-64, KT_UISCREEN_Width, 252);
     self.pickerView.delegate = self;
 }
 
