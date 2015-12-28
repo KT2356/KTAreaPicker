@@ -40,9 +40,8 @@
 
 #pragma mark - public methods
 - (instancetype)initInSuperView:(UIView *)superView WithPickerType:(KTPickerViewType)pickerType {
-    self = [super init];
+    self = [[[NSBundle mainBundle] loadNibNamed:@"KTAreaPicker" owner:self options:nil] firstObject];
     if (self) {
-        self = [[[NSBundle mainBundle] loadNibNamed:@"KTAreaPicker" owner:self options:nil] firstObject];
         if (![KTAreaPickerModel sharedModel].provinceList) {
             [self analysisJSON:@"area.json" finishBlock:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
